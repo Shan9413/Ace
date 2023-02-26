@@ -4,7 +4,7 @@ import json
 import subprocess
 from pyrogram import Client, filters
 from pyrogram.types.messages_and_media import message
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Button
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.errors import FloodWait
 from pyromod import listen
 from pyrogram.types import Message
@@ -86,10 +86,6 @@ async def account_login(bot: Client, m: Message):
     else:
         editable = await m.reply_text(
             "Hello Bruh🔥 **I am Text File Downloader Bot**. I can download videos from **text** file one by one.**\n\nDeveloper** : ROLEX**\nLanguage** : Python**\nFramework** : 🔥 Pyrogram\n\nSend **TXT** File {Name : Link}"
-                       buttons=[
-                              [Button.inline("🧑‍🔧 DEVELOPER.",url="https://lundlelo.com"),
-                               Button.inline("🔰 REPO.", url="https://lundlelo.com")]
-                              ]
         )
     input: Message = await bot.listen(editable.chat.id)
     x = await input.download()
