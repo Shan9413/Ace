@@ -85,7 +85,7 @@ async def account_login(bot: Client, m: Message):
         return
     else:
         editable = await m.reply_text(
-            "Hello Bruh🔥 **I am Text File Downloader Bot**. I can download videos from **text** file one by one.**\n\nDeveloper** : ROLEX**\nLanguage** : Python**\nFramework** : 🔥 Pyrogram\n\nSend **TXT** File {Name : Link}\nInlineKeyboardMarkup([[InlineKeyboardButton("🧑‍🔧 Developer", url="https://lundlelo.com"),InlineKeyboardMarkup([[InlineKeyboardButton("🔰 REPO", url="https://lundlelo.com")"
+            "Hello Bruh🔥 **I am Text File Downloader Bot**. I can download videos from **text** file one by one.**\n\nDeveloper** : ROLEX**\nLanguage** : Python**\nFramework** : 🔥 Pyrogram\n\nSend **TXT** File {Name : Link}\nInlineKeyboardMarkup([[InlineKeyboardButton("Developer", url="https://lundlelo.com"),InlineKeyboardMarkup([[InlineKeyboardButton("REPO", url="https://lundlelo.com")"
         )
     input: Message = await bot.listen(editable.chat.id)
     x = await input.download()
