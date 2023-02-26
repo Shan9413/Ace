@@ -85,7 +85,7 @@ async def account_login(bot: Client, m: Message):
         return
     else:
         editable = await m.reply_text(
-            "Hello Bruh **I am Text Downloader Bot**. I can download videos from **text** file one by one.**\n\nDeveloper** :AGHORI **\nLanguage** : Python**\nFramework** : 🔥 Pyrogram\n\nSend **TXT** File {Name : Link}"
+            "Hello Bruh **I am Text Downloader Bot**. I can download videos from **text** file one by one.**\n\nDeveloper** :ROLEX**\nLanguage** : Python**\nFramework** : 🔥 Pyrogram\n\nSend **TXT** File {Name : Link}"
         )
     input: Message = await bot.listen(editable.chat.id)
     x = await input.download()
@@ -345,8 +345,8 @@ async def account_login(bot: Client, m: Message):
             try:
                 Show = f"**Downloading:-**\n\n**Name :-** `{name}\nQuality - {raw_text2}`\n\n**Url :-** `{url}`"
                 prog = await m.reply_text(Show)
-                cc = f'**Name »** {name1} {res}.mkv\n**Batch »** {raw_text0}\n**Index »** {str(count).zfill(3)}'
-                cc1 = f'**Name »** ** {name1} {res}.pdf\n**Batch »** {raw_text0}\n**Index »** {str(count).zfill(3)}'
+                cc = f'**Name »** {name1} {res}.mp4\n**Batch »** {raw_text0}\n**Index »** {str(count).zfill(3)}\n **Downloaded By :ＲＯＬＥＸ**'
+                cc1 = f'**Name »** ** {name1} {res}.pdf\n**Batch »** {raw_text0}\n**Index »** {str(count).zfill(3)}\n **Downloaded By :ＲＯＬＥＸ**'
                 #                         await prog.delete (True)
                 #                 if cmd == "pdf" or "drive" in url:
                 #                     try:
