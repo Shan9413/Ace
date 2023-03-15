@@ -348,10 +348,10 @@ async def account_login(bot: Client, m: Message):
                 cmd = f'yt-dlp -f "{ytf}+bestaudio" --hls-prefer-ffmpeg --no-keep-video --remux-video mkv "{url}" -o "{name}.%(ext)s"'
 
             try:
-                Show = f"**Downloading:-**\n\n**Name :-** `{name}\nQuality - {raw_text2}`\n\n**Url :-** `{url}`"
+                Show = f"**Downloading [Bot Made By ＲＯＬＥＸ]:-**\n\n**Name :-** `{name}\nQuality - {raw_text2}`\n\n**Url :-** `{url}`"
                 prog = await m.reply_text(Show)
-                cc = f'**{str(count).zfill(3)}.** {name1} {res}.mp4\n\n**Batch »** {raw_text0}\n\n**Downloaded By : raw_text8**'
-                cc1 = f'**{str(count).zfill(3)}.** {name1} {res}.pdf\n\n**Batch »** {raw_text0}\n\n**Downloaded By : raw_text8**'
+                cc = f'**{str(count).zfill(3)}.** {name1} {res}.mp4\n\n**Batch »** {raw_text0}\n\n**Downloaded By :** {raw_text8}'
+                cc1 = f'**{str(count).zfill(3)}.** {name1} {res}.pdf\n\n**Batch »** {raw_text0}\n\n**Downloaded By :** {raw_text8}'
                 #                         await prog.delete (True)
                 #                 if cmd == "pdf" or "drive" in url:
                 #                     try:
@@ -383,7 +383,7 @@ async def account_login(bot: Client, m: Message):
                         await m.reply_document(
                             ka,
                             caption =
-                            f'**{str(count).zfill(3)}.** {name1} {res}.pdf\n\n**Batch »** {raw_text0}\n\n**Downloaded By : raw_text8**'
+                            f'**{str(count).zfill(3)}.** {name1} {res}.pdf\n\n**Batch »** {raw_text0}\n\n**Downloaded By :** {raw_text8}'
                         )
                         count += 1
                         # time.sleep(1)
