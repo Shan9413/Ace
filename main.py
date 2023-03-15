@@ -52,24 +52,9 @@ sudo_groups = [
 @bot.on_message(filters.command(["pyro"]))
 async def account_login(bot: Client, m: Message):
 
- editable = await m.reply_text("**Hi ROLEX SIR 🔥😎 Press**\n**Text** = /pro_txt\n**Top** = /pro_top\n**Vision** = /pro_vision\n**Jw** = /pro_jw\n**Olive** = /pro_olive\n**Addapdf** = /adda_pdf"
+ editable = await m.reply_text("**Hi ROLEX SIR 🔥😎 Press**\n**Text** = /pro_txt\n**Top** = /pro_top\n**Vision** = /pro_vision\n**Jw** = /pro_jw\n**Olive** = /pro_olive\n**Addapdf** = /adda_pdf")
  
- keyboard = InlineKeyboardMarkup(
-    [
-        [
-            InlineKeyboardButton(
-                text="Devloper",
-                url="https://pornhub.com/",
-            ),
-            InlineKeyboardButton(
-                text="Repo",
-                url="https://lund-chushLoo.com/repo",
-            ),
-        ],
-    ]
-)
-)
-
+ 
 @bot.on_message(filters.command(["cancel"]))
 async def cancel(_, m):
     editable = await m.reply_text("Canceling All process Plz wait\n🚦🚦 Last Process Stopped 🚦🚦")
