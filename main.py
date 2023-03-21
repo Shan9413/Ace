@@ -568,7 +568,7 @@ async def account_login(bot: Client, m: Message):
     await m.reply_text("Batch Successfully Completed ☺️")
     
     @bot.on_message(filters.command(["adda_pdf"]))
-async def account_login(bot: Client, m: Message):
+    async def account_login(bot: Client, m: Message):
     user = m.from_user.id if m.from_user is not None else None
     if user is not None and user not in sudo_users:
         await m.reply("**bhag bhosadi ke**", quote=True)
@@ -648,7 +648,7 @@ async def account_login(bot: Client, m: Message):
     await m.reply_text("Batch Successfully Completed ☺️")
     
     @bot.on_message(filters.command(["pro_olive"]))
-async def account_login(bot: Client, m: Message):
+    async def account_login(bot: Client, m: Message):
     user = m.from_user.id if m.from_user is not None else None
     if user is not None and user not in sudo_users:
         await m.reply("bhag bhosadi ke", quote=True)
