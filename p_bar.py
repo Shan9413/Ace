@@ -1,3 +1,20 @@
+
+ABHIMANYU509
+/
+downtown
+Private
+Code
+Issues
+Pull requests
+Projects
+Security
+Insights
+Settings
+downtown/p_bar.py
+@ABHIMANYU509
+ABHIMANYU509 Update p_bar.py
+ 2 contributors
+37 lines (32 sloc)  1.36 KB
 import time
 import math
 import os
@@ -30,8 +47,8 @@ async def progress_bar(current,total,reply,start):
             tot=hrb(total)
             cur=hrb(current)
             try:
-            	
+                
                 await reply.edit(f'╭──⌈📤 𝙐𝙥𝙡𝙤𝙖𝙙𝙞𝙣𝙜 📤⌋──╮ \n├{progress_bar}\n├ 𝙎𝙥𝙚𝙚𝙙 🦾 : {sp} \n├ 𝙋𝙧𝙤𝙜𝙧𝙚𝙨𝙨 📈 : {perc} \n├ 𝗟𝗼𝗮𝗱𝗲𝗱 ⚙️ : {cur}\n├ 𝙎𝙞𝙯𝙚 📂 :  {tot} \n├ 𝙀𝙏𝘼 : {eta} \n╰───⌈ 𝗥𝗢𝗟𝗘𝗫 𝗕𝗢𝗧 ⌋────╯\n')
                
-                except FloodWait as e:
+            except FloodWait as e:
                 time.sleep(e.x)
