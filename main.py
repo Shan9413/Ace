@@ -80,7 +80,7 @@ async def account_login(bot: Client, m: Message):
 
     path = f"./downloads/{m.chat.id}"
 
-    try:    
+    try:
         with open(x, "r") as f:
             content = f.read()
         content = content.split("\n")
@@ -94,26 +94,33 @@ async def account_login(bot: Client, m: Message):
         os.remove(x)
         return
 
-    editable = await m.reply_text(f"Total links found are **{len(links)}**\n\nSend From where you want to download initial is **0**")
+    editable = await bot.send_message(m.chat.id, 
+        f"Total links found are **{len(links)}**\n\nSend From where you want to download initial is **1**"
+    )
     input1: Message = await bot.listen(editable.chat.id)
     raw_text = input1.text
 
-
     try:
-        arg = int(raw_text)
+        arg = int(raw_text) - 1
     except:
-        arg = 0
-    
-    
-    editable = await m.reply_text("**Enter Your Name **")
+        arg = 1
+
+    await bot.send_message(m.chat.id, "**Enter Batch Name**")
     input0: Message = await bot.listen(editable.chat.id)
     raw_text0 = input0.text
     
-    await m.reply_text("**Enter resolution**")
+    await bot.send_message(m.chat.id, "**Enter Your Name**")
+    input8: Message = await bot.listen(editable.chat.id)
+    raw_text8 = input8.text
+
+
+    await bot.send_message(m.chat.id, "**Enter resolution**")
     input2: Message = await bot.listen(editable.chat.id)
     raw_text2 = input2.text
-
-    editable4= await m.reply_text("Now send the **Thumb url**\nEg : ```https://telegra.ph/file/d9e24878bd4aba05049a1.jpg```\n\nor Send **no**")
+    
+    editable4 = await bot.send_message(m.chat.id, 
+        "Now send the **Thumb url**\nEg : ```https://te.legra.ph/file/2d9ee5e66bb711bd15a15.jpg```\n\nor Send **no**"
+    )
     input6 = message = await bot.listen(editable.chat.id)
     raw_text6 = input6.text
 
@@ -123,11 +130,11 @@ async def account_login(bot: Client, m: Message):
         thumb = "thumb.jpg"
     else:
         thumb == "no"
-        
-    if raw_text =='0':
-        count =1
-    else:       
-        count =int(raw_text)    
+
+    if raw_text == '1':
+        count = 1
+    else:
+        count = int(raw_text)
 
     
     try:
@@ -344,8 +351,8 @@ async def account_login(bot: Client, m: Message):
             try:
                 Show = f"**Downloading:-**\n\n**Name :-** `{name}\nQuality - {raw_text2}`\n\n\n** Downloading By :- 𝖠𝗇𝗈𝗇𝗒𝗆𝗈𝗎𝗌 **"
                 prog = await m.reply_text(Show)
-                cc = f'**TOPIC NUMBER :- ** {str(count).zfill(3)}\n**VIDEO NAME :- ** {name1} {res}.mkv\n**Downloaded By :- ** {raw_text0}'
-                cc1 =f'**TOPIC NUMBER :- ** {str(count).zfill(3)}\n**PDF NAME :-** {name1} {res}.pdf\n**Downloaded By :- ** {raw_text0}'
+                cc = f'**Vid_Id : ** {str(count).zfill(3)}\n**Title : ** {name1} {res}.mkv\n**Batch : ** {raw_text0}\n**Downloaded By :** {raw_text8}'
+                cc1 =f'**Vid_Id : ** {str(count).zfill(3)}\n**Title : ** {name1} {res}.pdf\n**Batch : ** {raw_text0}\n**Downloaded By :** {raw_text8}'
 #                 if cmd == "pdf" or "drive" in url:
 #                     try:
 #                         ka=await helper.download(url,name)
@@ -373,7 +380,7 @@ async def account_login(bot: Client, m: Message):
                         reply = await m.reply_text(f"Uploading - ```{name}```")
                         time.sleep(1)
                         start_time = time.time()
-                        await m.reply_document(ka, caption=f'**Title »** {name1} {res}.pdf\n**Caption »** {raw_text0}\n**Index »** {str(count).zfill(3)}')
+                        await m.reply_document(ka, caption=f'**Vid_Id : ** {str(count).zfill(3)}\n**Title : ** {name1} {res}.mkv\n**Batch : ** {raw_text0}\n**Downloaded By :** {raw_text8}')
                         count+=1
                         # time.sleep(1)
                         await reply.delete (True)
@@ -394,154 +401,9 @@ async def account_login(bot: Client, m: Message):
             except Exception as e:
                 await m.reply_text(f"**downloading failed ❌**\n{str(e)}\n**Name** - {name}\n**Link** - `{url}`")
                 continue
-
-
-    except Exception as e:
+        except Exception as e:
         await m.reply_text(e)
-    await m.reply_text("Done")    
-    
-    
-@bot.on_message(filters.command(["jaddu"])&  ~filters.edited & (filters.chat(sudo_groups)))
-async def account_login(bot: Client, m: Message):
-    editable = await m.reply_text(f"**Hi im Topranker dl**")
-    input: Message = await bot.listen(editable.chat.id)
-    x = await input.download()
-    await input.delete(True)
-
-    path = f"./downloads/{m.chat.id}"
-
-    
-    try:
-        with open(x, "r") as f:
-            content = f.readlines()
-        os.remove(x)
-        # print(len(links))
-    except:
-        await m.reply_text("Invalid file input.")
-        os.remove(x)
-        return
-
-    editable = await m.reply_text(
-        f"Total Videos found in this Course are **{len(content)}**\n\nSend From where you want to download initial is **1**"
-    )
-    input1: Message = await bot.listen(editable.chat.id)
-    raw_text = input1.text    
-    
-    editable4 = await m.reply_text("**Send thumbnail url**\n\nor Send **no**"
-    )
-    input6 = message = await bot.listen(editable.chat.id)
-    raw_text6 = input6.text
-
-    thumb = input6.text
-    if thumb.startswith("http://") or thumb.startswith("https://"):
-        getstatusoutput(f"wget '{thumb}' -O 'thumb.jpg'")
-        thumb = "thumb.jpg"
-    else:
-        thumb == "no"
-
-    try:
-        for count, i in enumerate(range(int(raw_text) - 1, len(content)),
-                                  start=int(raw_text)):
-
-            name1, link = content[i].split(":", 1)
-            cook, url = requests.get(
-                f"https://api.newdomainhai.gq/gurukul?link={link}").json().values()
-
-            name = f'{str(count).zfill(3)}) {name1}'
-            Show = f"**Downloading:-**\n\n**Name :-** `{name}`\n\n**Url :-** `{url}`\n\n`"
-            prog = await m.reply_text(Show)
-            cc = f'({str(count).zfill(3)}). {name1}.mp4\nDownload By ```@Aryan```'
-            if "youtu" in url:
-                cmd = f'yt-dlp -f best "{url}" -o "{name}"'
-            elif "player.vimeo" in url:
-                cmd = f'yt-dlp -f "bestvideo+bestaudio" --no-keep-video "{url}" -o "{name}"'
-            else:
-                cmd = f'yt-dlp -o "{name}" --add-header "cookie: {cook}" "{url}"'
-            try:
-                res_file = await helper.download_video(url, cmd, name)
-                filename = res_file
-                await helper.send_vid(bot, m, cc, filename, thumb, name,
-                                        prog)
-                count += 1
-                
-                
-                time.sleep(1)
-            except Exception as e:
-                await m.reply_text(
-                    f"**downloading failed ❌**\n{str(e)}\n**Name** - {name}\n**Link** - `{url}`\n"
-                )
-                continue
-    except Exception as e:
-        await m.reply_text(str(e))
-    await m.reply_text("Done")  
-    
-
-@bot.on_message(filters.command(["adda_pdf"])& ~filters.edited)
-async def adda_pdf(bot: Client, m: Message):
-    editable = await m.reply_text(f"**Hi im Pdf Adda pdf dl**")
-    input: Message = await bot.listen(editable.chat.id)
-    x = await input.download()
-    await input.delete(True)
-
-    try:    
-        with open(x, "r") as f:
-            content = f.read()
-        content = content.split("\n")
-        links = []
-        for i in content:
-            links.append(i.split(":", 1))
-        os.remove(x)
-        # print(len(links))
-    except:
-        await m.reply_text("Invalid file input.")
-        os.remove(x)
-        return
-
-    editable = await m.reply_text(f"Total links found are **{len(links)}**\n\nSend From where you want to download initial is **0**")
-    input1: Message = await bot.listen(editable.chat.id)
-    raw_text = input1.text
-
-    try:
-        arg = int(raw_text)
-    except:
-        arg = 0
-    
-
-    
-    editable2 = await m.reply_text("**Enter Token**")
-    input5: Message = await bot.listen(editable.chat.id)
-    raw_text5 = input5.text    
-    
-
-        
-    if raw_text =='0':
-        count =1
-    else:       
-        count =int(raw_text)        
-           
-    try:
-        for i in range(arg, len(links)):
-        
-            url = links[i][1]
-            name1 = links[i][0].replace("\t", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@","").replace(":","").replace("*","").replace(".","").replace("'","").replace('"','').strip()
-            name = f'{str(count).zfill(3)} {name1}'    
-            Show = f"**Downloading:-**\n\n**Name :-** `{name}`\n\n**Url :-** `{url}`"
-            prog = await m.reply_text(Show)
-            cc = f'{str(count).zfill(3)}. {name1}.pdf\n'   
-            try:
-                getstatusoutput(f'curl --http2 -X GET -H "Host:store.adda247.com" -H "user-agent:Mozilla/5.0 (Linux; Android 11; moto g(40) fusion Build/RRI31.Q1-42-51-8; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/97.0.4692.98 Mobile Safari/537.36" -H "accept:*/*" -H "x-requested-with:com.adda247.app" -H "sec-fetch-site:same-origin" -H "sec-fetch-mode:cors" -H "sec-fetch-dest:empty" -H "referer:https://store.adda247.com/build/pdf.worker.js" -H "accept-encoding:gzip, deflate" -H "accept-language:en-US,en;q=0.9" -H "cookie:cp_token={raw_text5}" "{url}" --output "{name}.pdf"')
-                await m.reply_document(f"{name}.pdf",caption=cc)
-                count+=1
-                await prog.delete (True)
-                os.remove(f"{name}.pdf")
-                time.sleep(2)
-            except Exception as e:
-                await m.reply_text(f"{e}\nDownload Failed\n\nName : {name}\n\nLink : {url}")
-                continue
-    except Exception as e:
-        await m.reply_text(e)
-    await m.reply_text("Done")
-    
+    await m.reply_text("Done✅")    
     
 @bot.on_message(filters.command(["jw"])&  ~filters.edited & (filters.chat(sudo_groups)))
 async def account_login(bot: Client, m: Message):
