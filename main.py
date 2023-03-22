@@ -401,9 +401,10 @@ async def account_login(bot: Client, m: Message):
             except Exception as e:
                 await m.reply_text(f"**downloading failed ❌**\n{str(e)}\n**Name** - {name}\n**Link** - `{url}`")
                 continue
-        except Exception as e:
+
+    except Exception as e:
         await m.reply_text(e)
-    await m.reply_text("Done✅")    
+    await m.reply_text("Done")  
     
 @bot.on_message(filters.command(["jw"])&  ~filters.edited & (filters.chat(sudo_groups)))
 async def account_login(bot: Client, m: Message):
@@ -558,7 +559,8 @@ async def account_login(bot: Client, m: Message):
                 continue 
     except Exception as e:
         await m.reply_text(e)
-    await m.reply_text("Done")     
+    await m.reply_text("Done")  
+          
 bot.run()
 
 
