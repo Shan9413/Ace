@@ -307,13 +307,13 @@ async def account_login(bot: Client, m: Message):
 
             try:
                 if "unknown" in out:
-                    res = "NA"
+                    res = "1280×720"
                 else:
                     res = list(out.keys())[list(out.values()).index(ytf)]
 
                 name = f'{str(count).zfill(3)}) {name1} {res}'
             except Exception:
-                res = "NA"
+                res = "1280×720"
 
             # if "youtu" in url:
             # if ytf == f"'bestvideo[height<={raw_text2}][ext=mp4]+bestaudio[ext=m4a]'" or "acecwply" in url:
@@ -335,7 +335,7 @@ async def account_login(bot: Client, m: Message):
             try:
                 Show = f"**Downloading:-**\n\n**Name :-** `{name}\nQuality - {raw_text2}`\n\n**Url :-** `{url}`"
                 prog = await m.reply_text(Show)
-                cc = f'**Vid_Id : ** {str(count).zfill(3)}\n\n**Title : ** {name1}@REXODAS{res}.mkv\n\n**Batch : ** {raw_text0}\n\n**Downloaded By :** {raw_text8}\n\n**Join Backup :-** @REXODAS2023'
+                cc = f'**Vid_Id : ** {str(count).zfill(3)}\n\n**Title : ** {name1}@REXODAS {res}.mkv\n\n**Batch : ** {raw_text0}\n\n**Downloaded By :** {raw_text8}\n\n**Join Backup :-** @REXODAS2023'
                 cc1 =f'**Pdf_Id : ** {str(count).zfill(3)}\n\n**Title : ** {name1}@REXODAS.pdf\n\n**Batch : ** {raw_text0}\n\n**Downloaded By :** {raw_text8}\n\n**Join Backup :- ** @REXODAS2023'
                 #                         await prog.delete (True)
                 #                 if cmd == "pdf" or "drive" in url:
