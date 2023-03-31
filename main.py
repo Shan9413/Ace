@@ -489,7 +489,37 @@ async def account_login(bot: Client, m: Message):
                 }
                 
                 params = (('url', f'{url}'), )
+         if "jwplayer" in url:
+                headers = {
+                    'Host': 'api.classplusapp.com',
+                    'x-access-token': 'eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJpZCI6MzgzNjkyMTIsIm9yZ0lkIjoyNjA1LCJ0eXBlIjoxLCJtb2JpbGUiOiI5MTcwODI3NzQyODkiLCJuYW1lIjoiQWNlIiwiZW1haWwiOm51bGwsImlzRmlyc3RMb2dpbiI6dHJ1ZSwiZGVmYXVsdExhbmd1YWdlIjpudWxsLCJjb3VudHJ5Q29kZSI6IklOIiwiaXNJbnRlcm5hdGlvbmFsIjowLCJpYXQiOjE2NDMyODE4NzcsImV4cCI6MTY0Mzg4NjY3N30.hM33P2ai6ivdzxPPfm01LAd4JWv-vnrSxGXqvCirCSpUfhhofpeqyeHPxtstXwe0',
+                    'user-agent': 'Mobile-Android',
+                    'app-version': '1.4.37.1',
+                    'api-version': '18',
+                    'device-id': '5d0d17ac8b3c9f51',
+                    'device-details': '2848b866799971ca_2848b8667a33216c_SDK-30',
+                    'accept-encoding': 'gzip',
+                }
 
+                params = (
+                    ('url', f'{url}'),
+                )
+
+     for url :
+          timestamp = str(int(requests.get('https://api.classplus.com/time').text))
+          to_hash = api.classplus.com + url + timestamp + eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJpZCI6MzgzNjkyMTIsIm9yZ0lkIjoyNjA1LCJ0eXBlIjoxLCJtb2JpbGUiOiI5MTcwODI3NzQyODkiLCJuYW1lIjoiQWNlIiwiZW1haWwiOm51bGwsImlzRmlyc3RMb2dpbiI6dHJ1ZSwiZGVmYXVsdExhbmd1YWdlIjpudWxsLCJjb3VudHJ5Q29kZSI6IklOIiwiaXNJbnRlcm5hdGlvbmFsIjowLCJpYXQiOjE2NDMyODE4NzcsImV4cCI6MTY0Mzg4NjY3N30.hM33P2ai6ivdzxPPfm01LAd4JWv-vnrSxGXqvCirCSpUfhhofpeqyeHPxtstXwe0 t
+          signature = hashlib.sha256(to_hash.encode('utf-8')).hexdigest()
+          headers = {'X-CP-HOST': api.classplus.com, 'X-CP-SIGNATURE': signature, 'X-CP-TIMESTAMP': timestamp}
+          response = requests.get(url, headers=headers)
+          print(response.text)
+
+                response = requests.get('https://api.classplusapp.com/cams/uploader/video/jw-signed-url', headers=headers, params=params)
+                # print(response.json())
+                a = response.json()['url']
+                # print(a)
+
+
+               
                 response = requests.get(
                     'https://api.classplusapp.com/cams/uploader/video/jw-signed-url',
                     headers=headers,
