@@ -52,7 +52,7 @@ sudo_groups = [
 @bot.on_message(filters.command(["pyro"]))
 async def account_login(bot: Client, m: Message):
 
- editable = await m.reply_text("**Hi ROLEX SIR 🔥😎 Press**\n**Text** = /pro_txt")
+ editable = await m.reply_text("**Hi ROLEX SIR 🔥😎 Press**\n**Text** = /pro_txt\n**Jw**= /pro_jw")
  
  
 @bot.on_message(filters.command(["cancel"]))
@@ -407,8 +407,7 @@ async def account_login(bot: Client, m: Message):
         return
     else:
         editable = await m.reply_text(
-            "Hello Bruh **I am jw Downloader Bot**. I can download videos from **text** file one by one.**\n\nLanguage** : Python**\nFramework** :Pyrogram\n\nSend **TXT** File {Name : Link}"
-       ,reply_markup=keyboard)
+            "Hello Bruh **I am jw Downloader Bot**. I can download videos from **text** file one by one.**\n\nLanguage** : Python**\nFramework** :Pyrogram\n\nSend **TXT** File {Name : Link}")
     input: Message = await bot.listen(editable.chat.id)
     x = await input.download()
     await input.delete(True)
@@ -557,8 +556,8 @@ async def account_login(bot: Client, m: Message):
                 else:
                     await m.reply_video(filename,
                                         supports_streaming=True,
-                                        height=640,
-                                        width=360,
+                                        height=1280,
+                                        width=720,
                                         caption=cc,
                                         duration=dur,
                                         thumb=thumbnail,
