@@ -493,13 +493,13 @@ async def account_login(bot: Client, m: Message):
                 url = requests.get().json()['url']
 
             name = f'{str(count).zfill(3)}) {name1}'
-            Show = f"**Downloading:-**\n\n**Name :-** `{name}`\n\n**Url :-** `{url1}`"
+            Show = f"**Downloading:-**\n\n**Name :-** `{name}`\n\n**Url :-** `{url}`"
             prog = await m.reply_text(Show)
             cc = f'**Title »** {name1}.mkv\n**Caption »** {raw_text0}\n**Index »** {str(count).zfill(3)}\n\n**Download BY** :- Group Admin'
             if "pdf" in url:
-                cmd = f'yt-dlp -o "{name}.pdf" "{url1}"'
+                cmd = f'yt-dlp -o "{name}.pdf" "{url}"'
             else:
-                cmd = f'yt-dlp -o "{name}.mp4" --no-keep-video --remux-video mkv "{url1}"'
+                cmd = f'yt-dlp -o "{name}.mp4" --no-keep-video --remux-video mkv "{url}"'
             try:
                 download_cmd = f"{cmd} -R 25 --fragment-retries 25 --external-downloader aria2c --downloader-args 'aria2c: -x 16 -j 32'"
                 os.system(download_cmd)
@@ -529,7 +529,7 @@ async def account_login(bot: Client, m: Message):
                 dur = int(helper.duration(filename))
 
                 start_time = time.time()
-                if "pdf" in url1:
+                if "pdf" in url:
                     await m.reply_document(filename, caption=cc)
                 else:
                     await m.reply_video(filename,
