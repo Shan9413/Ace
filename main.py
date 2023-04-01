@@ -304,7 +304,25 @@ async def account_login(bot: Client, m: Message):
                 out = helper.vid_info(str(k))
                 for dataS in out:
                     ytf = out[dataS]
-
+            elif "classplus" in url:
+                if raw_text2 == '144':
+                    ytf = 'http-240p'
+                elif raw_text2 == "240":
+                    ytf = 'http-240p'
+                elif raw_text2 == '360':
+                    ytf = 'http-360p'
+                elif raw_text2 == '480':
+                    ytf = 'http-540p'
+                elif raw_text2 == '720':
+                    ytf = 'http-720p'
+                else:
+                    ytf = 'http-360p'
+            else:
+                cmd = f'yt-dlp -F "{url}"'
+                k = await helper.run(cmd)
+                out = helper.vid_info(str(k))
+                for dataS in out:
+                    ytf = out[dataS]
             try:
                 if "unknown" in out:
                     res = "NA"
@@ -321,7 +339,7 @@ async def account_login(bot: Client, m: Message):
                 cmd = f'yt-dlp -o "{name}.%(ext)s" -f "bestvideo[height<={raw_text2}]+bestaudio" --hls-prefer-ffmpeg --no-keep-video --remux-video mkv --no-warning "{url}"'
             elif "youtu" in url:
                 cmd = f'yt-dlp -i -f "bestvideo[height<={raw_text2}]+bestaudio" --no-keep-video --remux-video mkv --no-warning "{url}" -o "{name}.%(ext)s"'
-            elif "player.vimeo" in url:
+            elif "classplus" in url:
                 cmd = f'yt-dlp -f "{ytf}+bestaudio" --no-keep-video --remux-video mkv "{url}" -o "{name}.%(ext)s"'
             elif "m3u8" or "livestream" in url:
                 cmd = f'yt-dlp -f "{ytf}" --no-keep-video --remux-video mkv "{url}" -o "{name}.%(ext)s"'
