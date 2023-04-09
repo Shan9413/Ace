@@ -335,7 +335,7 @@ async def account_login(bot: Client, m: Message):
             try:
                 Show = f"**Downloading:-**\n\n**Name :-** `{name}\nQuality - {raw_text2}`\n\n**Url :-** `{url}`"
                 prog = await m.reply_text(Show)
-                cc = f'**Vid_Id : ** {str(count).zfill(3)}\n\n**Title : ** {name1} {res}.mkv\n\n**Batch : ** {raw_text0}\n\n**Downloaded By :** {raw_text8}'
+                cc = f'**Vid_Id : ** {str(count).zfill(3)}\n\n**Title : ** {name1} {res}.mp4\n\n**Batch : ** {raw_text0}\n\n**Downloaded By :** {raw_text8}'
                 cc1 =f'**Pdf_Id : ** {str(count).zfill(3)}\n\n**Title : ** {name1}.pdf\n\n**Batch : ** {raw_text0}\n\n**Downloaded By :** {raw_text8}'
                 #                         await prog.delete (True)
                 #                 if cmd == "pdf" or "drive" in url:
@@ -468,7 +468,7 @@ async def account_login(bot: Client, m: Message):
     try:
         for i in range(arg, len(links)):
 
-            url = url = links[i][1].replace("\n","")
+            url = links[i][1].replace("\n","")
             name1 = links[i][0].replace("\t", "").replace(":", "").replace(
                 "/",
                 "").replace("+", "").replace("#", "").replace("|", "").replace(
