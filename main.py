@@ -145,7 +145,9 @@ async def account_login(bot: Client, m: Message):
 
             url = links[i][1]
             name1 = links[i][0].replace("\t", "").replace(":", "").replace("/","").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").strip()
-           if "classplusapp" in url:
+           
+
+            if "classplusapp" in url:
                 headers = {
                     'Host': 'api.classplusapp.com',
                     'x-access-token':
