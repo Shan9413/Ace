@@ -324,6 +324,12 @@ async def account_login(bot: Client, m: Message):
             elif "player.vimeo" in url:
                 cmd = f'yt-dlp -f "{ytf}+bestaudio" --no-keep-video --remux-video mkv "{url}" -o "{name}.%(ext)s"'
             elif "m3u8" or "livestream" in url:
+                if "classplus" in url:
+                    cmd = f'yt-dlp --no-keep-video --no-check-certificate --remux-video mkv "{url}" -o "{name}.%(ext)s"'
+                else:
+                    cmd = f'yt-dlp -f "{ytf}" --no-check-certificate --remux-video mkv "{url}" -o "{name}.%(ext)s"'
+            elif ytf == "0" or "unknown" in out:
+                cmd = f'yt-dlp -f "{ytf}" --no-keep-video --remux-video mkv "{url}" -o "{name}.%(ext)s"'
                 cmd = f'yt-dlp -f "{ytf}" --no-keep-video --remux-video mkv "{url}" -o "{name}.%(ext)s"'
             elif ytf == "0" or "unknown" in out:
                 cmd = f'yt-dlp -f "{ytf}" --no-keep-video --remux-video mkv "{url}" -o "{name}.%(ext)s"'
@@ -505,7 +511,7 @@ async def account_login(bot: Client, m: Message):
             name = f'{str(count).zfill(3)}) {name1}'
             Show = f"**Downloading:-**\n\n**Name :-** `{name}`\n\n**Url :-** `{url1}`"
             prog = await m.reply_text(Show)
-            cc = f'**Title »** {name1}.mkv\n**Caption »** {raw_text0}\n**Index »** {str(count).zfill(3)}\n\n**Download BY** :- Group Admin'
+            cc = f'**Vid_Id : ** {str(count).zfill(3)}\n\n**Title : ** {name1} {res}.mkv\n\n**Batch : ** {raw_text0}\n\n**Downloaded By :** {raw_text8}'
             if "pdf" in url:
                 cmd = f'yt-dlp -o "{name}.pdf" "{url}"'
             else:
