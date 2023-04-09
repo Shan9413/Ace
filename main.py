@@ -507,7 +507,7 @@ async def account_login(bot: Client, m: Message):
             prog = await m.reply_text(Show)
             cc = f'**Vid_Id : ** {str(count).zfill(3)}\n\n**Title : ** {name1}.mkv\n\n**Batch : ** {raw_text0}\n\n**Downloaded By :**𝗥𝗢𝗟𝗘𝗫 𝗕𝗢𝗧'
             if "pdf" in url:
-                cmd = f'yt-dlp -o "{name}.pdf" "{url1}"'
+                cmd = f'yt-dlp -o "{name}.pdf" "{url}"'
             else:
                 cmd = f'yt-dlp -o "{name}.mp4" --no-keep-video --no-check-certificate --remux-video mkv "{url1}"'
             try:
@@ -544,8 +544,8 @@ async def account_login(bot: Client, m: Message):
                 else:
                     await m.reply_video(filename,
                                         supports_streaming=True,
-                                        height=1280,
-                                        width=720,
+                                        height=852,
+                                        width=480,
                                         caption=cc,
                                         duration=dur,
                                         thumb=thumbnail,
