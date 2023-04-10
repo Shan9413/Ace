@@ -442,7 +442,11 @@ async def account_login(bot: Client, m: Message):
     editable = await m.reply_text("**Enter Title**")
     input0: Message = await bot.listen(editable.chat.id)
     raw_text0 = input0.text
-
+    
+    editable = await m.reply_text("**Enter Your Name**")
+    input8: Message = await bot.listen(editable.chat.id)
+    raw_text8 = input8.text
+ 
     await m.reply_text("**Enter resolution**")
     input2: Message = await bot.listen(editable.chat.id)
     raw_text2 = input2.text
@@ -505,8 +509,8 @@ async def account_login(bot: Client, m: Message):
             name = f'{str(count).zfill(3)}) {name1}'
             Show = f"**Downloading:-**\n\n**Name :-** `{name}`\n\n**Url :-** `{url1}`"
             prog = await m.reply_text(Show)
-            cc = f'**Vid_Id : **{str(count).zfill(3)}\n\n**Title : ** {name1}.mkv\n\n**Batch : ** {raw_text0}\n\n**Downloaded By : ROLEX Bot**'
-            cc1 = f'**Pdf_Id : **{str(count).zfill(3)}\n\n**Title : ** {name1}.pdf\n\n**Batch : ** {raw_text0}\n\n**Downloaded By : ROLEX Bot**'
+            cc = f'**Vid_Id : **{str(count).zfill(3)}\n\n**Title : ** {name1}.mkv\n\n**Batch : ** {raw_text0}\n\n**🖤 Downloaded By :**{raw_text8}'
+            cc1 = f'**Pdf_Id : **{str(count).zfill(3)}\n\n**Title : ** {name1}.pdf\n\n**Batch : ** {raw_text0}\n\n**🖤 Downloaded By :**{raw_text8}'
             if "pdf" in url:
                 download_cmd = os.system(f'yt-dlp -o "{name}.pdf" "{url1}"')
                 await prog.delete(True)
