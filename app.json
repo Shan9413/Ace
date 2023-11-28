@@ -4,10 +4,10 @@
     "repository":"https://github.com/DRAGO_OWNER/pyrotext",
     "buildpacks":[
         {
-            "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+            "url": "https://github.com/rogerpq/heroku-buildpack-ffmpeg-latest.git"
         },
         {
-            "url": "https://github.com/amivin/aria2-heroku.git"
+            "url": "https://github.com/wy580477/Heroku-All-In-One-APP.git"
         },
         {
             "url": "heroku/python"
