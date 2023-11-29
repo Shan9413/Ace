@@ -39,14 +39,14 @@ import io
 
 
 bot = Client("bot",
-             bot_token=os.environ.get("BOT_TOKEN"),
-             api_id=int(os.environ.get("API_ID")),
-             api_hash=os.environ.get("API_HASH"))
+             bot_token=os.environ.get("6654605912:AAFy2Js6kiwUq1a18pt3O5zPReCAHEw9XPE"),
+             api_id=int(os.environ.get("20088962")),
+             api_hash=os.environ.get("257f47d347157555890a64b12bc0134f"))
 auth_users = [
-    int(chat) for chat in os.environ.get("AUTH_USERS").split(",") if chat != '']
+    int(chat) for chat in os.environ.get("6169016546").split(",") if chat != '']
 sudo_users = auth_users
 sudo_groups = [
-    int(chat) for chat in os.environ.get("GROUPS").split(",") if chat != '']
+    int(chat) for chat in os.environ.get("-1004008382140").split(",") if chat != '']
     
     
 @bot.on_message(filters.command(["pyro"]))
