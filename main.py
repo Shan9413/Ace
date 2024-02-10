@@ -21,13 +21,13 @@ import aiohttp
 import asyncio
 import aiofiles
 from pyrogram.types import User, Message
-# import progressor
-# from progressor import progress_for_pyrogram
-#import sys
+import progressor
+from progressor import progress_for_pyrogram
+import sys
 import re
 import os
 import io
-#import pycurl
+import pycurl
 
 # bot = Client(
 #     "bot",
