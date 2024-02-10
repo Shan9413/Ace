@@ -66,9 +66,8 @@ async def restart_handler(_, m):
 
 
 @bot.on_message(filters.command(["pro_txt"]))
-async def account_login(bot: Client, m: Message):       
-    else:
-        editable = await m.reply_text(
+async def account_login(bot: Client, m: Message):           
+    editable = await m.reply_text(
             "Hello Bruh🔥 **I am Text Downloader Bot**. I can download videos from **text** file one by one.**\n\nDeveloper** : ROLEX**\nLanguage** : Python**\nFramework** : Pyrogram\n\nSend **TXT** File {Name : Link}")
     input: Message = await bot.listen(editable.chat.id)
     x = await input.download()
