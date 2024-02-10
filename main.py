@@ -11,7 +11,7 @@ from pyrogram.types import Message
 import pyrogram
 import tgcrypto
 from p_bar import progress_bar
-#from details import api_id, api_hash, bot_token
+from details import api_id, api_hash, bot_token
 from subprocess import getstatusoutput
 import helper
 import logging
@@ -39,7 +39,7 @@ import io
 
 
 bot = Client("bot",
-             bot_token=6778587387:AAFt5GDWxQjXXM6JX6MB1TTNKYPDivrvK4k,
+             bot_token=6746876285:AAGnUDNwDvWu4RfbkSSiQe8gt-2lU-9p-Bk,
              api_id=20088962,
              api_hash=257f47d347157555890a64b12bc0134f, 
 auth_users =6169016546,
@@ -69,11 +69,7 @@ async def restart_handler(_, m):
 
 
 @bot.on_message(filters.command(["pro_txt"]))
-async def account_login(bot: Client, m: Message):
-    user = m.from_user.id if m.from_user is not None else None
-    if user is not None and user not in sudo_users:
-        await m.reply("**Aache Balak Aishe Ni Karte", quote=True)
-        return
+async def account_login(bot: Client, m: Message):       
     else:
         editable = await m.reply_text(
             "Hello Bruh🔥 **I am Text Downloader Bot**. I can download videos from **text** file one by one.**\n\nDeveloper** : ROLEX**\nLanguage** : Python**\nFramework** : Pyrogram\n\nSend **TXT** File {Name : Link}")
